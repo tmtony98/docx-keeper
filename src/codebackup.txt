@@ -1,0 +1,44 @@
+at js section
+
+const [title, setTitle] = useState("");
+  const [docArray, setDocArray] = useState([]);
+
+  const addTitleToArray = () => {
+    const docInstance = {
+      title: title,
+      description: "",
+    };
+    setDocArray((currentDocArray) => [...currentDocArray, docInstance]);
+  };
+
+  const deleteDoc = (index) => {
+    console.log(index);
+    const removedArray = docArray.splice(index, 1);
+    console.log(removedArray);
+    setDocArray(removedArray);
+  };
+  console.log(docArray);
+
+
+
+<!-------------------
+{docArray.map((doc, index) => (
+          <div key={index} className="col-lg-3 mt-3 ">
+            <div className="card">
+              <div className="card-body d-flex justify-content-between">
+                <h5 className="text-start">{doc.title} </h5>
+                <div>
+                 
+                  <button className="btn" onClick={() => deleteDoc(index)}>
+                    
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+-------------------------------------------------------
+   onChange={(e) => {
+                    setTitle(e.target.value);
+                  }}
